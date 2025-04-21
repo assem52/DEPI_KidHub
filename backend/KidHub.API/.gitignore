@@ -1,0 +1,14 @@
+# Ignore Visual Studio temp files
+.vs/
+*.user
+*.suo
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore local database files
+*.db
+
+# Ignore environment configs (optional)
+.env
