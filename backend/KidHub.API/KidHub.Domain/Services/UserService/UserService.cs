@@ -25,6 +25,7 @@ namespace KidHub.Domain.Services.UserService
             var user = _mapper.Map<User>(dto);
             user.Id = Guid.NewGuid(); // Optional if your DB handles this
             await _userRepository.AddAsync(user);
+
             return _mapper.Map<UserDto>(user);
         }
         

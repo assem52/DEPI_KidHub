@@ -7,7 +7,7 @@ namespace KidHub.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CoursesController : Controller
+    public class CoursesController : ControllerBase
     {
         private readonly ICourseService _courseService;
 

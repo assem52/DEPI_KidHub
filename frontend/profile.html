@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - Yalla Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Yalla Learn</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#courses">My Courses</a>
+                <a href="#progress">Progress</a>
+                <a href="#settings">Settings</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-selector">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture">
+                    <button class="edit-profile-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h1 class="student-name" data-lang="en">John Doe</h1>
+                    <h1 class="student-name" data-lang="ar" style="display: none;">جون دو</h1>
+                    <p class="student-email">john.doe@example.com</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label" data-lang="en">Courses</span>
+                            <span class="stat-label" data-lang="ar" style="display: none;">الدورات</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">75%</span>
+                            <span class="stat-label" data-lang="en">Progress</span>
+                            <span class="stat-label" data-lang="ar" style="display: none;">التقدم</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label" data-lang="en">Certificates</span>
+                            <span class="stat-label" data-lang="ar" style="display: none;">الشهادات</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enrolled Courses -->
+            <div class="enrolled-courses">
+                <h2 class="section-title" data-lang="en">My Courses</h2>
+                <h2 class="section-title" data-lang="ar" style="display: none;">دوراتي</h2>
+                <div class="courses-grid">
+                    <div class="course-card enrolled">
+                        <div class="course-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Mathematics Course">
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <span>75% Complete</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h3 data-lang="en">Mathematics Fundamentals</h3>
+                            <h3 data-lang="ar" style="display: none;">أساسيات الرياضيات</h3>
+                            <p data-lang="en">Master the basics of mathematics with interactive lessons</p>
+                            <p data-lang="ar" style="display: none;">أتقن أساسيات الرياضيات مع دروس تفاعلية</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 15/20 hours</span>
+                                <span><i class="fas fa-book"></i> 8/10 lessons</span>
+                            </div>
+                            <button class="continue-btn" data-lang="en">Continue Learning</button>
+                            <button class="continue-btn" data-lang="ar" style="display: none;">استمر في التعلم</button>
+                        </div>
+                    </div>
+                    <div class="course-card enrolled">
+                        <div class="course-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Science Course">
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%"></div>
+                                </div>
+                                <span>45% Complete</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h3 data-lang="en">Science Discovery</h3>
+                            <h3 data-lang="ar" style="display: none;">اكتشاف العلوم</h3>
+                            <p data-lang="en">Explore the wonders of science through hands-on experiments</p>
+                            <p data-lang="ar" style="display: none;">اكتشف عجائب العلوم من خلال التجارب العملية</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 13/30 hours</span>
+                                <span><i class="fas fa-book"></i> 6/15 lessons</span>
+                            </div>
+                            <button class="continue-btn" data-lang="en">Continue Learning</button>
+                            <button class="continue-btn" data-lang="ar" style="display: none;">استمر في التعلم</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Information -->
+            <div class="student-info">
+                <h2 class="section-title" data-lang="en">Personal Information</h2>
+                <h2 class="section-title" data-lang="ar" style="display: none;">المعلومات الشخصية</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 data-lang="en">Basic Information</h3>
+                        <h3 data-lang="ar" style="display: none;">المعلومات الأساسية</h3>
+                        <div class="info-item">
+                            <span class="info-label" data-lang="en">Full Name:</span>
+                            <span class="info-label" data-lang="ar" style="display: none;">الاسم الكامل:</span>
+                            <span class="info-value">John Doe</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label" data-lang="en">Email:</span>
+                            <span class="info-label" data-lang="ar" style="display: none;">البريد الإلكتروني:</span>
+                            <span class="info-value">john.doe@example.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label" data-lang="en">Phone:</span>
+                            <span class="info-label" data-lang="ar" style="display: none;">الهاتف:</span>
+                            <span class="info-value">+1234567890</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3 data-lang="en">Education</h3>
+                        <h3 data-lang="ar" style="display: none;">التعليم</h3>
+                        <div class="info-item">
+                            <span class="info-label" data-lang="en">Level:</span>
+                            <span class="info-label" data-lang="ar" style="display: none;">المستوى:</span>
+                            <span class="info-value">University</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label" data-lang="en">Field:</span>
+                            <span class="info-label" data-lang="ar" style="display: none;">المجال:</span>
+                            <span class="info-value">Computer Science</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="edit-info-btn" data-lang="en">Edit Information</button>
+                <button class="edit-info-btn" data-lang="ar" style="display: none;">تعديل المعلومات</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html> 

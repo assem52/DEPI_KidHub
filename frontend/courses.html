@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Yalla Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--Linking SwiperJS CSS--> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Yalla</span>
+                    <span class="logo-text highlight">Learn</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#courses">Courses</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html" class="auth-link" data-lang="en">Login</a>
+                <a href="login.html" class="auth-link" data-lang="ar" style="display: none;">تسجيل الدخول</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-selector">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Courses Container -->
+    <div class="courses-container ">
+        <!-- Search and Filter Section -->
+        <div class="search-filter-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search courses..." data-en="Search courses..." data-ar="ابحث عن الدورات...">
+                <button type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label data-en="Category" data-ar="الفئة">Category</label>
+                    <select id="category-filter">
+                        <option value="" data-en="All Categories" data-ar="جميع الفئات">All Categories</option>
+                        <option value="programming" data-en="Programming" data-ar="البرمجة">Programming</option>
+                        <option value="mathematics" data-en="Mathematics" data-ar="الرياضيات">Mathematics</option>
+                        <option value="languages" data-en="Languages" data-ar="اللغات">Languages</option>
+                        <option value="personal-development" data-en="Personal Development" data-ar="التنمية الشخصية">Personal Development</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-en="Level" data-ar="المستوى">Level</label>
+                    <select id="level-filter">
+                        <option value="" data-en="All Levels" data-ar="جميع المستويات">All Levels</option>
+                        <option value="beginner" data-en="Beginner" data-ar="مبتدئ">Beginner</option>
+                        <option value="intermediate" data-en="Intermediate" data-ar="متوسط">Intermediate</option>
+                        <option value="advanced" data-en="Advanced" data-ar="متقدم">Advanced</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-en="Sort By" data-ar="ترتيب حسب">Sort By</label>
+                    <select id="sort-filter">
+                        <option value="popular" data-en="Most Popular" data-ar="الأكثر شعبية">Most Popular</option>
+                        <option value="newest" data-en="Newest" data-ar="الأحدث">Newest</option>
+                        <option value="rating" data-en="Highest Rated" data-ar="الأعلى تقييماً">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Courses -->
+        <section class="featured-courses">
+            <h2 data-en="Featured Courses" data-ar="الدورات المميزة">Featured Courses</h2>
+            <div class="courses-grid">
+                <div class="courses-card featured">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <!-- Add more featured courses here -->
+                <div class="courses-card featured">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card featured">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card featured">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card featured card5">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card featured card6">
+                    <div class="course-badge" data-en="Featured" data-ar="مميز">Featured</div>
+                    <img src="../ui2/images/Coding-bro.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Python Programming" data-ar="برمجة بايثون">Python Programming</h3>
+                        <p data-en="Learn Python from scratch" data-ar="تعلم بايثون من الصفر">Learn Python from scratch</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-users"></i> 500+ students</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Courses -->
+        <section class="all-courses">
+            <h2 data-en="All Courses" data-ar="جميع الدورات">All Courses</h2>
+            <div class="courses-grid">
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <img src="../ui2/images/Coding-cuate.svg" alt="Course Image">
+                    <div class="course-info">
+                        <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+                        <p data-en="Master HTML, CSS, and JavaScript" data-ar="إتقان HTML و CSS و JavaScript">Master HTML, CSS, and JavaScript</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-users"></i> 300+ students</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                    </div>
+                </div>
+                <!-- Add more course cards here -->
+            </div>
+        </section>
+
+        <!-- Recommended Courses -->
+        <section class="recommended-courses">
+            <h2 data-en="Recommended For You" data-ar="موصى به لك">Recommended For You</h2>
+            <div class="courses-grid swiper">
+                <div class="card-wrapped">
+                    <div class="swiper-wrapper">
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Communication Skills" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <div class="courses-card swiper-slide ">
+                            <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                            <div class="course-info">
+                                <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                                <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                                <div class="course-meta">
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                    <span><i class="fas fa-users"></i> 200+ students</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                </div>
+                                <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                            </div>
+                        </div>
+                        <!-- Add more recommended courses here -->
+    
+                    </div>
+                    <!-- pagination -->
+                    <div class="swiper-pagination"></div>
+    
+                    <!-- navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="col1">
+                <h3 data-lang="en">Connect With Us</h3>
+                <h3 data-lang="ar" style="display: none;">تواصل معنا</h3>
+                <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="col2">
+                <ul class="menu">
+                    <li><a href="#home" data-lang="en">Home</a></li>
+                    <li><a href="#features" data-lang="en">Features</a></li>
+                    <li><a href="#courses" data-lang="en">Courses</a></li>
+                    <li><a href="#contact" data-lang="en">Contact</a></li>
+                    <li><a href="#home" data-lang="ar" style="display: none;">الرئيسية</a></li>
+                    <li><a href="#features" data-lang="ar" style="display: none;">المميزات</a></li>
+                    <li><a href="#courses" data-lang="ar" style="display: none;">الدورات</a></li>
+                    <li><a href="#contact" data-lang="ar" style="display: none;">اتصل بنا</a></li>
+                </ul>
+                <p>
+                    Our goal is to create a modern, user-friendly learning environment where learners of all ages can grow, explore, and achieve anytime, anywhere.
+                </p>
+            </div>
+            <div class="col3">
+                <p>Register to know our news</p>
+                <form>
+                    <div class="input-wrap">
+                        <input
+                        type="email"
+                        placeholder="Example@gmail.com"
+                        />
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul class="service-icons">
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-amazon-pay"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-apple-pay"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="en">&copy; 2024 Yalla Learn. All rights reserved.</p>
+            <p data-lang="ar" style="display: none;">&copy; 2024 يلا ليرن. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script>
+        // Language toggle functionality
+        let isArabic = false;
+    
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                const text = isArabic ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+    
+                if (element.tagName === 'INPUT') {
+                    if (element.type === 'submit' || element.type === 'button') {
+                        element.value = text;
+                    } else {
+                        element.placeholder = text;
+                    }
+                } else if (element.tagName === 'OPTION') {
+                    element.textContent = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+    
+            document.documentElement.lang = isArabic ? 'ar' : 'en';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            localStorage.setItem('lang', isArabic ? 'ar' : 'en');
+        }
+    
+        // Listen to language toggle buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language load from localStorage
+            const savedLang = localStorage.getItem('lang') || 'en';
+            isArabic = savedLang === 'ar';
+            updateLanguage();
+    
+            // Add listeners to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    isArabic = btn.dataset.lang === 'ar';
+                    updateLanguage();
+                });
+            });
+    
+            // Theme toggle logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+    
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+    
+            themeToggle.addEventListener('click', () => {
+                const html = document.documentElement;
+                if (html.getAttribute('data-theme') === 'dark') {
+                    html.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                } else {
+                    html.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            });
+    
+            // Search functionality
+            const searchInput = document.querySelector('.search-box input');
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+                const courseCards = document.querySelectorAll('.course-card, .courses-card');
+                courseCards.forEach(card => {
+                    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+    
+            // Filter functionality
+            const categoryFilter = document.getElementById('category-filter');
+            const levelFilter = document.getElementById('level-filter');
+            const sortFilter = document.getElementById('sort-filter');
+    
+            function applyFilters() {
+                const category = categoryFilter.value;
+                const level = levelFilter.value;
+                const sort = sortFilter.value;
+    
+                // Implement filtering logic here if needed
+                console.log('Applying filters:', { category, level, sort });
+            }
+    
+            categoryFilter.addEventListener('change', applyFilters);
+            levelFilter.addEventListener('change', applyFilters);
+            sortFilter.addEventListener('change', applyFilters);
+    
+            // User menu toggle
+            const userMenu = document.querySelector('.user-menu');
+            if (userMenu) {
+                userMenu.addEventListener('click', function () {
+                    this.querySelector('.user-dropdown').classList.toggle('show');
+                });
+    
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!userMenu.contains(e.target)) {
+                        userMenu.querySelector('.user-dropdown').classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!--Linking SwiperJS Script-->
+    <script
+     src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+    
+    <script src="courses.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

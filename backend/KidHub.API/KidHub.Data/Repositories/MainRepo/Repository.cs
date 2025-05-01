@@ -19,6 +19,10 @@ namespace KidHub.Data.Repositories.MainRepo
             _context = context;
             DbSet = _context.Set<T>();
         }
+        public Task SaveAsync()
+        {
+            return _context.SaveChangesAsync();
+        }
 
         public T Add(T entity)
         {

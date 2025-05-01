@@ -14,6 +14,8 @@ namespace KidHub.Data.Repositories.MainRepo
         T Get(TId id);
 
             Task<T> GetAsync(TId id);
+            public Task SaveAsync();
+
 
             IEnumerable<T> GetAll(string[]? include = null);
 

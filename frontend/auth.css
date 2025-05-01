@@ -1,0 +1,514 @@
+/* Auth Container */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--bg-color);
+    overflow-x: hidden;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 500px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.5s ease;
+    margin: 1rem;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Auth Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-color);
+    padding: 0 0.5rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not([value=""]) + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Error Message Styles */
+.error-message {
+    display: none;
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown) ~ .error-message,
+.form-group select:invalid:not(:focus) ~ .error-message {
+    display: block;
+}
+
+/* Password Toggle Button */
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+/* Form Options */
+.form-options {
+    margin: 1rem 0;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.terms input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--primary-color);
+}
+
+.terms a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.terms a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Auth Button */
+.auth-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+/* Auth Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-color);
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .form-group label {
+    right: 1rem;
+    left: auto;
+}
+
+[dir="rtl"] .toggle-password {
+    right: auto;
+    left: 1rem;
+}
+
+[dir="rtl"] .error-message {
+    padding-left: 0;
+    padding-right: 0.5rem;
+}
+
+/* تحسينات للأجهزة اللوحية */
+@media (max-width: 1024px) {
+    .auth-box {
+        padding: 2rem;
+        max-width: 450px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.95rem;
+    }
+}
+
+/* تحسينات للهواتف الذكية */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 0.5rem;
+    }
+
+    .auth-box {
+        padding: 1.5rem;
+        margin: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .auth-header p {
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.9rem;
+        font-size: 1rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .error-message {
+        font-size: 0.75rem;
+    }
+
+    .auth-btn {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .terms {
+        font-size: 0.85rem;
+    }
+}
+
+/* تحسينات للهواتف الصغيرة */
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 1.2rem;
+        margin: 0.3rem;
+    }
+
+    .auth-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.8rem;
+    }
+
+    .auth-btn {
+        padding: 0.8rem;
+    }
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1440px) {
+    .auth-box {
+        max-width: 550px;
+        padding: 3rem;
+    }
+
+    .auth-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 1.1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* تحسينات للوضع الأفقي على الأجهزة المحمولة */
+@media (max-height: 600px) and (orientation: landscape) {
+    .auth-container {
+        padding: 0.5rem;
+    }
+
+    .auth-box {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* تحسينات للشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .auth-box {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+}
+
+/* تحسينات للأجهزة التي تدعم اللمس */
+@media (hover: none) and (pointer: coarse) {
+    .auth-btn {
+        min-height: 44px; /* الحد الأدنى لحجم اللمس */
+    }
+
+    .form-group input,
+    .form-group select {
+        min-height: 44px; /* الحد الأدنى لحجم اللمس */
+    }
+
+    .toggle-password {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* تحسينات للشاشات المقلوبة */
+@media (orientation: portrait) {
+    .auth-container {
+        min-height: 100vh;
+    }
+}
+
+/* تحسينات للشاشات المقلوبة */
+@media (orientation: landscape) {
+    .auth-container {
+        min-height: 100vh;
+    }
+}
+
+/* تحسينات للشاشات التي تدعم الوضع المظلم */
+@media (prefers-color-scheme: dark) {
+    .auth-box {
+        background: var(--card-bg);
+    }
+}
+
+/* تحسينات للشاشات التي تدعم الوضع الفاتح */
+@media (prefers-color-scheme: light) {
+    .auth-box {
+        background: var(--card-bg);
+    }
+}
+
+/* تحسينات للشاشات التي تدعم الحركة المحدودة */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* تحسينات للشاشات التي تدعم التباين العالي */
+@media (prefers-contrast: high) {
+    .auth-box {
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* تحسينات للشاشات التي تدعم التباين المنخفض */
+@media (prefers-contrast: low) {
+    .auth-box {
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group label {
+    background: var(--card-bg);
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .auth-box {
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .auth-header h2 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .auth-header p {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .form-group label {
+    color: var(--text-secondary);
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .form-group input:focus + label,
+[data-theme="dark"] .form-group input:not(:placeholder-shown) + label,
+[data-theme="dark"] .form-group select:focus + label,
+[data-theme="dark"] .form-group select:not([value=""]) + label {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .error-message {
+    color: var(--error-color);
+}
+
+[data-theme="dark"] .toggle-password {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .toggle-password:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .terms {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .terms a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .terms a:hover {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .auth-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+[data-theme="dark"] .auth-btn:hover {
+    background: var(--secondary-color);
+}
+
+[data-theme="dark"] .auth-footer {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .auth-footer a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .auth-footer a:hover {
+    color: var(--secondary-color);
+} 
