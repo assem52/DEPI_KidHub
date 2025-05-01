@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace KidHub.Data.Repositories.UserRepo
 {
-    interface IUserRepository : IRepository<User, Guid>
+    public interface IUserRepository : IRepository<User, Guid>
     {
         // Define user-specific methods here
-        // For example:
-      
+        Task<User?> GetByEmailAsync(string email);
+        Task<User?> GetByEmailAndPasswordAsync(string email, string password);
     }
 }

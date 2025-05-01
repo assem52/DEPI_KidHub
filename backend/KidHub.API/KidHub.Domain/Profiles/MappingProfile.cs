@@ -17,9 +17,14 @@ namespace KidHub.Domain.Profiles
 
                 CreateMap<Course, CourseDto>();
 
-                // Define the mapping between CreateCourseDto and Course
-                CreateMap<CreateCourseDto, Course>(); 
-            }
+            // Define the mapping between CreateCourseDto and Course
+                CreateMap<CreateCourseDto, Course>();
+
+            // Define the mapping between User and UserDto
+                CreateMap<User, UserDto>();
+                CreateMap<CreateUserDto, User>();
+
         }
+    }
     }
 

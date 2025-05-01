@@ -9,10 +9,25 @@ using System.Threading.Tasks;
 
 namespace KidHub.Data.Repositories.UserRepo
 {
-    class UserRepository : Repository<User, Guid>, IUserRepository
+   public class UserRepository : Repository<User, Guid>, IUserRepository
     {
+
+        private readonly ApplicationDbContext _context;
         public UserRepository(ApplicationDbContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public Task<User?> GetByEmailAndPasswordAsync(string email, string password)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.PasswordHash == password);
+            return Task.FromResult(user);
+        }
+
+        public Task<User?> GetByEmailAsync(string email)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+            return Task.FromResult(user);
         }
     }
 }

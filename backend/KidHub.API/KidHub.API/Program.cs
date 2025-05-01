@@ -4,6 +4,8 @@ using KidHub.Domain.Services.CourseService;
 using Microsoft.EntityFrameworkCore;
 using KidHub.Domain.Services;
 using KidHub.Domain.Profiles;
+using KidHub.Data.Repositories.UserRepo;
+using KidHub.Domain.Services.UserService;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +28,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 
 
@@ -45,3 +50,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
