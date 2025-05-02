@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using KidHub.Data.Repositories.CourseRepo;
-using KidHub.Domain.Dtos;
 using KidHub.Data.Entities;
+using KidHub.Domain.Dtos.CourseDtos;
 
 namespace KidHub.Domain.Services.CourseService;
 

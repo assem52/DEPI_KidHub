@@ -1,4 +1,4 @@
-﻿using KidHub.Domain.Dtos;
+﻿using KidHub.Domain.Dtos.CourseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,30 +1,33 @@
 ﻿using AutoMapper;
 using KidHub.Data.Entities;
 using KidHub.Domain.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using KidHub.Domain.Dtos.CourseDtos;
+using KidHub.Domain.Dtos.IdentityDtos;
+using KidHub.Domain.Dtos.LessonDtos;
 
 namespace KidHub.Domain.Profiles
 {
-       
-        public class MappingProfile : Profile
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
         {
-            public MappingProfile()
-            {
-
-                CreateMap<Course, CourseDto>();
+            // Define the mapping between Course and CourseDto
+            CreateMap<Course, CourseDto>()
+                .ForMember(dest => dest.Lessons, opt => opt.MapFrom(src => src.Lessons)); // Mapping lessons
 
             // Define the mapping between CreateCourseDto and Course
-                CreateMap<CreateCourseDto, Course>();
+            CreateMap<CreateCourseDto, Course>();
 
             // Define the mapping between User and UserDto
-                CreateMap<User, UserDto>();
-                CreateMap<CreateUserDto, User>();
+            CreateMap<User, UserDto>();
+            CreateMap<CreateUserDto, User>();
+
+            // Define the mapping between Lesson and LessonDto
+            CreateMap<Lesson, LessonDto>().ReverseMap();
+
+
+            CreateMap<CreateLessonDto, Lesson>(); // Mapping from CreateLessonDto to Lesson
 
         }
     }
-    }
-
+}

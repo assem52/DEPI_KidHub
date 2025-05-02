@@ -17,6 +17,8 @@ namespace KidHub.Data.Entities
         public bool? IsPremiumOnly { get; set; }
 
         public ICollection<UserCourse>? EnrolledUsers { get; set; }
+        public ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
+
     }
 
 }

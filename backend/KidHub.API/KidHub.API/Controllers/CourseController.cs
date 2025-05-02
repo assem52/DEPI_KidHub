@@ -1,4 +1,4 @@
-﻿using KidHub.Domain.Dtos;
+﻿using KidHub.Domain.Dtos.CourseDtos;
 using KidHub.Domain.Services.CourseService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

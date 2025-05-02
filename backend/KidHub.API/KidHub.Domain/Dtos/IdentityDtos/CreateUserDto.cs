@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KidHub.Domain.Dtos
+namespace KidHub.Domain.Dtos.IdentityDtos
 {
     public class CreateUserDto
     {

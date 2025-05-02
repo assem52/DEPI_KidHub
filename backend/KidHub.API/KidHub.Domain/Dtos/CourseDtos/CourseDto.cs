@@ -1,4 +1,6 @@
-﻿namespace KidHub.Domain.Dtos
+﻿using KidHub.Domain.Dtos.LessonDtos;
+
+namespace KidHub.Domain.Dtos.CourseDtos
 {
     public class CourseDto
     {
@@ -9,8 +11,10 @@
         public string? ThumbnailUrl { get; set; }
         public decimal? Price { get; set; }
         public bool? IsPremiumOnly { get; set; }
+        public ICollection<LessonDto> Lessons { get; set; }
+
     }
-    
+
 
 
 

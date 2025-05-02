@@ -1,4 +1,4 @@
-﻿namespace KidHub.Domain.Dtos
+﻿namespace KidHub.Domain.Dtos.CourseDtos
 {
     public class CreateCourseDto
     {

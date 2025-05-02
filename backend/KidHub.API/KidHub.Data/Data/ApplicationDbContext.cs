@@ -15,6 +15,8 @@ namespace KidHub.Data.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
 
+        public DbSet<Lesson> Lessons { get; set; }
+
         //configurations
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

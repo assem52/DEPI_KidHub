@@ -1,9 +1,9 @@
-﻿using KidHub.Domain.Dtos;
-using KidHub.Data.Entities;
+﻿using KidHub.Data.Entities;
 using KidHub.Domain.Services.UserService;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Threading.Tasks;
+using KidHub.Domain.Dtos.IdentityDtos;
 
 namespace KidHub.Services.UserService
 {

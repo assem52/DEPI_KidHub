@@ -1,6 +1,6 @@
-﻿using KidHub.Domain.Dtos;
-using KidHub.Data.Entities;
+﻿using KidHub.Data.Entities;
 using System.Threading.Tasks;
+using KidHub.Domain.Dtos.IdentityDtos;
 
 namespace KidHub.Domain.Services.UserService
 {

@@ -8,6 +8,8 @@ using KidHub.Domain.Services.UserService;
 using Microsoft.AspNetCore.Identity;
 using KidHub.Services.UserService;
 using KidHub.Data.Entities;
+using KidHub.Data.Repositories.LessonRepository;
+using KidHub.Domain.Services.LessonService;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +33,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+builder.Services.AddScoped<ILessonService, LessonService>();
+
 
 // ASP.NET Core Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
