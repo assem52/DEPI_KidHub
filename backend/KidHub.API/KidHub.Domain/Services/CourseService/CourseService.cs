@@ -33,7 +33,6 @@ public class CourseService : ICourseService
         var course = _mapper.Map<Course>(dto);
         await _courseRepository.AddAsync(course);
         await _courseRepository.SaveAsync();
-
         return _mapper.Map<CourseDto>(course);
     }
 

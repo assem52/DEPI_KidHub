@@ -1,45 +1,66 @@
-﻿using AutoMapper;
-using KidHub.Domain.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KidHub.Data.Repositories.UserRepo;
+﻿using KidHub.Domain.Dtos;
 using KidHub.Data.Entities;
+using KidHub.Domain.Services.UserService;
+using Microsoft.AspNetCore.Identity;
+using System;
+using System.Threading.Tasks;
 
-namespace KidHub.Domain.Services.UserService
+namespace KidHub.Services.UserService
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+
+        public UserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
-            _userRepository = userRepository;
-            _mapper = mapper;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        public async Task<UserDto> CreateUserAsync(CreateUserDto dto)
+        // Register a new user
+        public async Task<ApplicationUser> RegisterAsync(CreateUserDto dto)
         {
-            var user = _mapper.Map<User>(dto);
-            user.Id = Guid.NewGuid(); // Optional if your DB handles this
-            await _userRepository.AddAsync(user);
+            var user = new ApplicationUser
+            {
+                UserName = dto.Email,
+                Email = dto.Email
+            };
 
-            return _mapper.Map<UserDto>(user);
+            var result = await _userManager.CreateAsync(user, dto.Password);
+
+            if (result.Succeeded)
+            {
+                // If registration is successful, return the created user
+                return user;
+            }
+
+            throw new Exception("Failed to register user.");
         }
-        
 
-        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+        // Login a user
+        public async Task<ApplicationUser> LoginAsync(LoginDto dto)
         {
-            var users = await _userRepository.GetAllAsync();
-            return _mapper.Map<IEnumerable<UserDto>>(users);
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+            if (user == null)
+            {
+                throw new Exception("Invalid login attempt.");
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user, dto.Password, false, false);
+
+            if (result.Succeeded)
+            {
+                return user; // Return the user if login is successful
+            }
+
+            throw new Exception("Invalid login attempt.");
         }
 
-        public async Task<UserDto?> GetUserByIdAsync(Guid id)
+        // Get a user by email
+        public async Task<ApplicationUser> GetUserByEmailAsync(string email)
         {
-            var user = await _userRepository.GetAsync(id); 
-            return user == null ? null : _mapper.Map<UserDto>(user);
+            return await _userManager.FindByEmailAsync(email);
         }
     }
 }
