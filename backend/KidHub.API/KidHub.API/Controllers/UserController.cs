@@ -1,10 +1,13 @@
 ﻿using KidHub.Domain.Dtos;
+using KidHub.Data.Entities;
 using KidHub.Domain.Services.UserService;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+
 
 namespace KidHub.API.Controllers
 {
-
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -14,27 +17,45 @@ namespace KidHub.API.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
+        }
 
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] CreateUserDto dto)
         {
-            var users = await _userService.GetAllUsersAsync();
-            return Ok(users);
+            try
+            {
+                var user = await _userService.RegisterAsync(dto);
+                return Ok(new { message = "User created successfully.", user = user });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            var user = await _userService.GetUserByIdAsync(id);
+            try
+            {
+                var user = await _userService.LoginAsync(dto);
+                return Ok(new { message = "Login successful.", user = user });
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+        }
+        // Get a user by email
+        [HttpGet("email/{email}")]
+        public async Task<IActionResult> GetUserByEmail(string email)
+        {
+            var user = await _userService.GetUserByEmailAsync(email);
             if (user == null)
+            {
                 return NotFound();
+            }
             return Ok(user);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateUserDto dto)
-        {
-            var created = await _userService.CreateUserAsync(dto);
-            return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
         }
     }
 }

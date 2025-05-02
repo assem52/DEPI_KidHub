@@ -4,8 +4,10 @@ using KidHub.Domain.Services.CourseService;
 using Microsoft.EntityFrameworkCore;
 using KidHub.Domain.Services;
 using KidHub.Domain.Profiles;
-using KidHub.Data.Repositories.UserRepo;
 using KidHub.Domain.Services.UserService;
+using Microsoft.AspNetCore.Identity;
+using KidHub.Services.UserService;
+using KidHub.Data.Entities;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,8 +30,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<ICourseService, CourseService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+// ASP.NET Core Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+
 
 
 
@@ -44,6 +52,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
