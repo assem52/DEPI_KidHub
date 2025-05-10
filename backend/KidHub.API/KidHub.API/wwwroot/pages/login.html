@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Yalla Learn</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">Yalla</span>
+                        <span class="logo-text highlight">Learn</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                    <button id="lang-toggle" class="lang-toggle">
+                        <span class="lang-text">AR</span>
+                    </button>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2 data-en="Welcome Back" data-ar="مرحباً بعودتك">Welcome Back</h2>
+                <p data-en="Login to continue your learning journey" data-ar="سجل دخولك لمواصلة رحلة تعلمك">Login to continue your learning journey</p>
+            </div>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           title="Please enter a valid email address">
+                    <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    <div class="error-message" data-en="Please enter a valid email address" data-ar="الرجاء إدخال بريد إلكتروني صحيح">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters">
+                    <label for="password" data-en="Password" data-ar="كلمة المرور">Password</label>
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="error-message" data-en="Please enter your password" data-ar="الرجاء إدخال كلمة المرور">Please enter your password</div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span data-en="Remember me" data-ar="تذكرني">Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password" data-en="Forgot Password?" data-ar="نسيت كلمة المرور؟">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="auth-btn" data-en="Login" data-ar="تسجيل الدخول">Login</button>
+            </form>
+            <div class="auth-footer">
+                <p data-en="Don't have an account? " data-ar="ليس لديك حساب؟ ">Don't have an account? </p>
+                <a href="signup.html" data-en="Sign Up" data-ar="اشتراك">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const langToggle = document.getElementById('lang-toggle');
+        const langText = langToggle.querySelector('.lang-text');
+        let isArabic = false;
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en], [data-ar]');
+            elements.forEach(element => {
+                if (element.tagName === 'A') {
+                    // Handle links
+                    element.textContent = isArabic ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+                } else {
+                    // Handle other elements
+                    const text = isArabic ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+                    if (element.tagName === 'INPUT' && element.type === 'submit') {
+                        element.value = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+
+            // Update document language and direction
+            document.documentElement.lang = isArabic ? 'ar' : 'en';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            
+            // Update language toggle text
+            langText.textContent = isArabic ? 'EN' : 'AR';
+        }
+
+        langToggle.addEventListener('click', function() {
+            isArabic = !isArabic;
+            updateLanguage();
+        });
+
+        // Password toggle functionality
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('loginError');
+            
+            try {
+                const user = await authService.login(email, password);
+                // Add a delay to see the response
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                window.location.href = 'index.html';
+            } catch (error) {
+                errorElement.textContent = error.message;
+                errorElement.style.display = 'block';
+            }
+        });
+
+        // Real-time validation
+        document.querySelectorAll('input').forEach(element => {
+            element.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.nextElementSibling.nextElementSibling.style.display = 'none';
+                }
+            });
+        });
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        // Check for saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            
+            if (savedTheme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                html.removeAttribute('data-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+    </script>
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+</html> 

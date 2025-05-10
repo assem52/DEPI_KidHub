@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Yalla Learn</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">Yalla</span>
+                        <span class="logo-text highlight">Learn</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                    <button id="lang-toggle" class="lang-toggle">
+                        <span class="lang-text">AR</span>
+                    </button>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2 data-en="Create Account" data-ar="إنشاء حساب">Create Account</h2>
+                <p data-en="Join Yalla Learn to start your learning journey" data-ar="انضم إلى يلا ليرن وابدأ رحلة تعلمك">Join Yalla Learn to start your learning journey</p>
+            </div>
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <input type="text" id="fullName" name="fullName" required
+                           pattern="[A-Za-z\s]{3,50}"
+                           title="Please enter a valid name (3-50 characters, letters only)">
+                    <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                    <div class="error-message" data-en="Please enter a valid name (3-50 characters, letters only)" data-ar="الرجاء إدخال اسم صحيح (3-50 حرفاً، أحرف فقط)">Please enter a valid name (3-50 characters, letters only)</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           title="Please enter a valid email address">
+                    <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    <div class="error-message" data-en="Please enter a valid email address" data-ar="الرجاء إدخال بريد إلكتروني صحيح">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters">
+                    <label for="password" data-en="Password" data-ar="كلمة المرور">Password</label>
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="error-message" data-en="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters" data-ar="يجب أن تحتوي كلمة المرور على رقم واحد على الأقل وحرف كبير وصغير و8 أحرف على الأقل">Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <label for="confirmPassword" data-en="Confirm Password" data-ar="تأكيد كلمة المرور">Confirm Password</label>
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="error-message" data-en="Passwords do not match" data-ar="كلمات المرور غير متطابقة">Passwords do not match</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required
+                           pattern="[0-9]{10,15}"
+                           title="Please enter a valid phone number (10-15 digits)">
+                    <label for="phone" data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                    <div class="error-message" data-en="Please enter a valid phone number (10-15 digits)" data-ar="الرجاء إدخال رقم هاتف صحيح (10-15 رقماً)">Please enter a valid phone number (10-15 digits)</div>
+                </div>
+
+                <div class="form-group">
+                    <select id="role" name="role" required>
+                        <option value="" data-en="Select Your Role" data-ar="اختر دورك">Select Your Role</option>
+                        <option value="student" data-en="Student" data-ar="طالب">Student</option>
+                        <option value="instructor" data-en="Instructor" data-ar="مدرس">Instructor</option>
+                    </select>
+                    <label for="role" data-en="Role" data-ar="الدور">Role</label>
+                    <div class="error-message" data-en="Please select your role" data-ar="الرجاء اختيار دورك">Please select your role</div>
+                </div>
+
+                <div class="form-options">
+                    <label class="terms">
+                        <input type="checkbox" required>
+                        <span data-en="I agree to the " data-ar="أوافق على ">I agree to the </span>
+                        <a href="#" data-en="Terms and Conditions" data-ar="الشروط والأحكام">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-btn" data-en="Sign Up" data-ar="اشتراك">Sign Up</button>
+            </form>
+            <div class="auth-footer">
+                <p data-en="Already have an account? " data-ar="لديك حساب بالفعل؟ ">Already have an account? </p>
+                <a href="login.html" data-en="Login" data-ar="تسجيل الدخول">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const langToggle = document.getElementById('lang-toggle');
+        const langText = langToggle.querySelector('.lang-text');
+        let isArabic = false;
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en], [data-ar]');
+            elements.forEach(element => {
+                if (element.tagName === 'A') {
+                    // Handle links
+                    element.textContent = isArabic ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+                } else {
+                    // Handle other elements
+                    const text = isArabic ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+                    if (element.tagName === 'INPUT' && element.type === 'submit') {
+                        element.value = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+
+            // Update document language and direction
+            document.documentElement.lang = isArabic ? 'ar' : 'en';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            
+            // Update language toggle text
+            langText.textContent = isArabic ? 'EN' : 'AR';
+        }
+
+        langToggle.addEventListener('click', function() {
+            isArabic = !isArabic;
+            updateLanguage();
+        });
+
+        // Password toggle functionality
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Form validation
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                document.querySelector('#confirmPassword + .error-message').style.display = 'block';
+                return;
+            }
+            
+            // If validation passes, you can proceed with form submission
+            alert(isArabic ? 'تم التسجيل بنجاح!' : 'Form submitted successfully!');
+        });
+
+        // Real-time validation
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.nextElementSibling.nextElementSibling.style.display = 'none';
+                }
+            });
+        });
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        // Check for saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const icon = themeToggle.querySelector('i');
+            
+            if (savedTheme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                html.removeAttribute('data-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
+
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+</html> 

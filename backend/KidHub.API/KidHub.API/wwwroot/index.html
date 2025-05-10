@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalla Learn - Your Learning Platform</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Yalla</span>
+                    <span class="logo-text highlight">Learn</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#courses">Courses</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html" class="auth-link" data-lang="en">Login</a>
+                <a href="login.html" class="auth-link" data-lang="ar" style="display: none;">تسجيل الدخول</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-selector">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Banner Section -->
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h1 class="title" data-lang="en">Transform Your Learning Journey</h1>
+            <h1 class="title" data-lang="ar" style="display: none;">حوّل رحلة تعلمك</h1>
+            <p class="subtitle" data-lang="en">Join a community of passionate learners and expert instructors</p>
+            <p class="subtitle" data-lang="ar" style="display: none;">انضم إلى مجتمع من المتعلمين المتحمسين والمدرسين الخبراء</p>
+            <div class="cta-buttons">
+                <a href="bundles.html" class="cta-button" data-lang="en">Get Started</a>
+                <a href="bundles.html" class="cta-button" data-lang="ar" style="display: none;">ابدأ الآن</a>
+                <a href="login.html" class="cta-button secondary" data-lang="en">Login</a>
+                <a href="login.html" class="cta-button secondary" data-lang="ar" style="display: none;">تسجيل الدخول</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title" data-lang="en">Key Features</h2>
+        <h2 class="section-title" data-lang="ar" style="display: none;">المميزات الرئيسية</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3 data-lang="en">Interactive Learning</h3>
+                <h3 data-lang="ar" style="display: none;">تعلم تفاعلي</h3>
+                <p data-lang="en">Experience engaging lessons with real-time feedback and interactive exercises</p>
+                <p data-lang="ar" style="display: none;">اختبر دروس تفاعلية مع ملاحظات فورية وتمارين تفاعلية</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 data-lang="en">Community Support</h3>
+                <h3 data-lang="ar" style="display: none;">دعم المجتمع</h3>
+                <p data-lang="en">Connect with peers, share knowledge, and grow together in our vibrant learning community</p>
+                <p data-lang="ar" style="display: none;">تواصل مع زملائك، شارك المعرفة، وتطور معاً في مجتمعنا التعليمي النابض بالحياة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 data-lang="en">Progress Tracking</h3>
+                <h3 data-lang="ar" style="display: none;">تتبع التقدم</h3>
+                <p data-lang="en">Monitor your achievements, track milestones, and celebrate your learning success</p>
+                <p data-lang="ar" style="display: none;">تابع إنجازاتك، تتبع المعالم، واحتفل بنجاحك التعليمي</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <h2 class="section-title" data-lang="en">Popular Courses</h2>
+        <h2 class="section-title" data-lang="ar" style="display: none;">الدورات الشائعة</h2>
+        
+        <!-- Mathematics Courses -->
+        <div class="course-category">
+            <h3 class="category-title" data-lang="en">Mathematics</h3>
+            <h3 class="category-title" data-lang="ar" style="display: none;">الرياضيات</h3>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/mathematics-not-css.svg" alt="Mathematics Course">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Beginner</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">مبتدئ</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Basic Mathematics</h3>
+                        <h3 data-lang="ar" style="display: none;">الرياضيات الأساسية</h3>
+                        <p data-lang="en">Master the fundamentals of mathematics with interactive lessons</p>
+                        <p data-lang="ar" style="display: none;">أتقن أساسيات الرياضيات مع دروس تفاعلية</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 500+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/mathematics-not-css.svg" alt="Mathematics Course">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Beginner</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">مبتدئ</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Basic Mathematics</h3>
+                        <h3 data-lang="ar" style="display: none;">الرياضيات الأساسية</h3>
+                        <p data-lang="en">Master the fundamentals of mathematics with interactive lessons</p>
+                        <p data-lang="ar" style="display: none;">أتقن أساسيات الرياضيات مع دروس تفاعلية</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 500+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/Mathematics-rafiki.svg" alt="Advanced Math">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Advanced</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">متقدم</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Advanced Calculus</h3>
+                        <h3 data-lang="ar" style="display: none;">حساب التفاضل والتكامل المتقدم</h3>
+                        <p data-lang="en">Deep dive into advanced mathematical concepts and applications</p>
+                        <p data-lang="ar" style="display: none;">تعمق في المفاهيم الرياضية المتقدمة وتطبيقاتها</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 300+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming Courses -->
+        <div class="course-category">
+            <h3 class="category-title" data-lang="en">Programming</h3>
+            <h3 class="category-title" data-lang="ar" style="display: none;">البرمجة</h3>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/Coding-bro.svg" alt="Python Course">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Beginner</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">مبتدئ</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Python Programming</h3>
+                        <h3 data-lang="ar" style="display: none;">برمجة بايثون</h3>
+                        <p data-lang="en">Learn Python from scratch with practical projects</p>
+                        <p data-lang="ar" style="display: none;">تعلم بايثون من الصفر مع مشاريع عملية</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 40 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 800+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/Coding-cuate.svg" alt="Web Development">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Intermediate</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">متوسط</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Web Development</h3>
+                        <h3 data-lang="ar" style="display: none;">تطوير الويب</h3>
+                        <p data-lang="en">Master HTML, CSS, and JavaScript for web development</p>
+                        <p data-lang="ar" style="display: none;">أتقن HTML و CSS و JavaScript لتطوير الويب</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 50 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 600+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages Courses -->
+        <div class="course-category">
+            <h3 class="category-title" data-lang="en">Languages</h3>
+            <h3 class="category-title" data-lang="ar" style="display: none;">اللغات</h3>
+            <h3 class="category-title" data-lang="fr" style="display: none;">Langues</h3>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/English teacher-amico.svg" alt="English Course">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">All Levels</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">جميع المستويات</span>
+                            <span class="course-level" data-lang="fr" style="display: none;">Tous niveaux</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">English Language</h3>
+                        <h3 data-lang="ar" style="display: none;">اللغة الإنجليزية</h3>
+                        <h3 data-lang="fr" style="display: none;">Langue Anglaise</h3>
+                        <p data-lang="en">Comprehensive English language course for all levels</p>
+                        <p data-lang="ar" style="display: none;">دورة شاملة في اللغة الإنجليزية لجميع المستويات</p>
+                        <p data-lang="fr" style="display: none;">Cours complet d'anglais pour tous les niveaux</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 60 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 1000+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="fr" style="display: none;">S'inscrire</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/Learning languages-pana.svg" alt="French Course">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Beginner to Advanced</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">من المبتدئين إلى المتقدمين</span>
+                            <span class="course-level" data-lang="fr" style="display: none;">Débutant à Avancé</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">French Language</h3>
+                        <h3 data-lang="ar" style="display: none;">اللغة الفرنسية</h3>
+                        <h3 data-lang="fr" style="display: none;">Langue Française</h3>
+                        <p data-lang="en">Master French language skills with interactive lessons and cultural insights</p>
+                        <p data-lang="ar" style="display: none;">أتقن مهارات اللغة الفرنسية مع دروس تفاعلية ورؤى ثقافية</p>
+                        <p data-lang="fr" style="display: none;">Maîtrisez le français avec des leçons interactives et des aperçus culturels</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 50 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 800+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="fr" style="display: none;">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Development Courses -->
+        <div class="course-category">
+            <h3 class="category-title" data-lang="en">Personal Development</h3>
+            <h3 class="category-title" data-lang="ar" style="display: none;">التنمية الشخصية</h3>
+            <h3 class="category-title" data-lang="fr" style="display: none;">Développement Personnel</h3>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/Time management-amico.svg" alt="Time Management">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">All Levels</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">جميع المستويات</span>
+                            <span class="course-level" data-lang="fr" style="display: none;">Tous niveaux</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Time Management</h3>
+                        <h3 data-lang="ar" style="display: none;">إدارة الوقت</h3>
+                        <h3 data-lang="fr" style="display: none;">Gestion du Temps</h3>
+                        <p data-lang="en">Learn effective time management and productivity techniques</p>
+                        <p data-lang="ar" style="display: none;">تعلم تقنيات إدارة الوقت والإنتاجية الفعالة</p>
+                        <p data-lang="fr" style="display: none;">Apprenez des techniques efficaces de gestion du temps et de productivité</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 15 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 400+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="fr" style="display: none;">S'inscrire</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="../assets/leadership-cuate.svg" alt="Leadership Skills">
+                        <div class="course-overlay">
+                            <span class="course-level" data-lang="en">Intermediate</span>
+                            <span class="course-level" data-lang="ar" style="display: none;">متوسط</span>
+                            <span class="course-level" data-lang="fr" style="display: none;">Intermédiaire</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang="en">Leadership Skills</h3>
+                        <h3 data-lang="ar" style="display: none;">مهارات القيادة</h3>
+                        <h3 data-lang="fr" style="display: none;">Compétences en Leadership</h3>
+                        <p data-lang="en">Develop essential leadership skills for personal and professional growth</p>
+                        <p data-lang="ar" style="display: none;">طور مهارات القيادة الأساسية للنمو الشخصي والمهني</p>
+                        <p data-lang="fr" style="display: none;">Développez des compétences essentielles en leadership pour la croissance personnelle et professionnelle</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                            <span><i class="fas fa-user-graduate"></i> 350+ students</span>
+                        </div>
+                        <a href="signup.html" class="enroll-btn" data-lang="en">Enroll Now</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="ar" style="display: none;">سجل الآن</a>
+                        <a href="signup.html" class="enroll-btn" data-lang="fr" style="display: none;">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all-courses">
+            <a href="courses.html" class="view-all-btn" data-lang="en">View All Courses</a>
+            <a href="courses.html" class="view-all-btn" data-lang="ar" style="display: none;">عرض جميع الدورات</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title" data-lang="en">About Yalla Learn</h2>
+                <h2 class="section-title" data-lang="ar" style="display: none;">عن يلا ليرن</h2>
+                
+                <div class="about-description">
+                    <p data-lang="en">Yalla Learn is Arabic educational platform offering high-quality video content in Mathematics, Programming, Languages, and Personal Development.</p>
+                    <p data-lang="ar" style="display: none;">يلا ليرن هي منصة تعليمية عربية تقدم محتوى فيديو عالي الجودة في الرياضيات والبرمجة واللغات والتنمية الشخصية.</p>
+                    
+                    <p data-lang="en">The platform provides a fully interactive learning experience with dedicated login access for students and teachers, enabling features like comments, questions, and course ratings.</p>
+                    <p data-lang="ar" style="display: none;">توفر المنصة تجربة تعلم تفاعلية كاملة مع وصول مخصص للطلاب والمعلمين، مما يتيح ميزات مثل التعليقات والأسئلة وتقييمات الدورات.</p>
+                    
+                    <p data-lang="en">Our goal is to create a modern, user-friendly learning environment where learners of all ages can grow, explore, and achieve — anytime, anywhere.</p>
+                    <p data-lang="ar" style="display: none;">هدفنا هو إنشاء بيئة تعليمية حديثة وسهلة الاستخدام حيث يمكن للمتعلمين من جميع الأعمار النمو والاستكشاف والتحقيق - في أي وقت وفي أي مكان.</p>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-video"></i>
+                        <span data-lang="en">High-Quality Video Content</span>
+                        <span data-lang="ar" style="display: none;">محتوى فيديو عالي الجودة</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <span data-lang="en">Interactive Learning</span>
+                        <span data-lang="ar" style="display: none;">تعلم تفاعلي</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-lang="en">Free Education</span>
+                        <span data-lang="ar" style="display: none;">تعليم مجاني</span>
+                    </div>
+                    <div class="feature-item feature-item4">
+                        <i class="fas fa-globe"></i>
+                        <span data-lang="en">Accessible Anywhere</span>
+                        <span data-lang="ar" style="display: none;">متاح في أي مكان</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title" data-lang="en">Contact Us</h2>
+        <h2 class="section-title" data-lang="ar" style="display: none;">اتصل بنا</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span data-lang="en">Email: info@yallalearn.com</span>
+                    <span data-lang="ar" style="display: none;">البريد الإلكتروني: info@yallalearn.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span data-lang="en">Phone: +1234567890</span>
+                    <span data-lang="ar" style="display: none;">الهاتف: +1234567890</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span data-lang="en">Address: 123 Learning St, Education City</span>
+                    <span data-lang="ar" style="display: none;">العنوان: 123 شارع التعلم، مدينة التعليم</span>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name" data-lang="en">Name</label>
+                    <label for="name" data-lang="ar" style="display: none;">الاسم</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email" data-lang="en">Email</label>
+                    <label for="email" data-lang="ar" style="display: none;">البريد الإلكتروني</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" required></textarea>
+                    <label for="message" data-lang="en">Message</label>
+                    <label for="message" data-lang="ar" style="display: none;">الرسالة</label>
+                </div>
+                <button type="submit" class="submit-btn" data-lang="en">Send Message</button>
+                <button type="submit" class="submit-btn" data-lang="ar" style="display: none;">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="col1">
+                <h3 data-lang="en">Connect With Us</h3>
+                <h3 data-lang="ar" style="display: none;">تواصل معنا</h3>
+                <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="col2">
+                <ul class="menu">
+                    <li><a href="#home" data-lang="en">Home</a></li>
+                    <li><a href="#features" data-lang="en">Features</a></li>
+                    <li><a href="#courses" data-lang="en">Courses</a></li>
+                    <li><a href="#contact" data-lang="en">Contact</a></li>
+                    <li><a href="#home" data-lang="ar" style="display: none;">الرئيسية</a></li>
+                    <li><a href="#features" data-lang="ar" style="display: none;">المميزات</a></li>
+                    <li><a href="#courses" data-lang="ar" style="display: none;">الدورات</a></li>
+                    <li><a href="#contact" data-lang="ar" style="display: none;">اتصل بنا</a></li>
+                </ul>
+                <p>
+                    Our goal is to create a modern, user-friendly learning environment where learners of all ages can grow, explore, and achieve anytime, anywhere.
+                </p>
+            </div>
+            <div class="col3">
+                <p>Register to know our news</p>
+                <form>
+                    <div class="input-wrap">
+                        <input
+                        type="email"
+                        placeholder="Example@gmail.com"
+                        />
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul class="service-icons">
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-amazon-pay"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-apple-pay"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="en">&copy; 2024 Yalla Learn. All rights reserved.</p>
+            <p data-lang="ar" style="display: none;">&copy; 2024 يلا ليرن. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    
+    <script type="module" src="../scripts/config.js"></script>
+    <script type="module" src="../scripts/utils.js"></script>
+    <script type="module" src="../scripts/api.js"></script>
+    <script type="module" src="../scripts/main.js"></script>
+    <script type="module" src="../scripts/script.js"></script>
+</body>
+</html> 

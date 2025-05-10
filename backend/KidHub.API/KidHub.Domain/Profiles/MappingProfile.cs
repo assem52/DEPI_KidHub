@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using KidHub.Data.Entities;
-using KidHub.Domain.Dtos;
 using KidHub.Domain.Dtos.CourseDtos;
 using KidHub.Domain.Dtos.IdentityDtos;
 using KidHub.Domain.Dtos.LessonDtos;
@@ -20,7 +19,7 @@ namespace KidHub.Domain.Profiles
 
             // Define the mapping between User and UserDto
             CreateMap<User, UserDto>();
-            CreateMap<CreateUserDto, User>();
+            CreateMap<RegisterDto, User>();
 
             // Define the mapping between Lesson and LessonDto
             CreateMap<Lesson, LessonDto>().ReverseMap();

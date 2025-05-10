@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KidHub.Domain.Dtos.IdentityDtos
 {
+
     public class LoginDto
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
-}
+        public LoginDto(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
 
+        [Required]
+        public string Email { get; }
+
+        [Required]
+        public string Password { get; }
+    }
+
+}

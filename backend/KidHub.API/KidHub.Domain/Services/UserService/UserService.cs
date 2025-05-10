@@ -19,7 +19,7 @@ namespace KidHub.Services.UserService
         }
 
         // Register a new user
-        public async Task<ApplicationUser> RegisterAsync(CreateUserDto dto)
+        public async Task<ApplicationUser> RegisterAsync(RegisterDto dto)
         {
             var user = new ApplicationUser
             {

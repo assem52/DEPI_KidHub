@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundles - Yalla Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="bundles.css">
+    <link rel="stylesheet" href="courses.css">
+    <!--Linking SwiperJS CSS--> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Yalla</span>
+                    <span class="logo-text highlight">Learn</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#courses">Courses</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html" class="auth-link" data-lang="en">Login</a>
+                <a href="login.html" class="auth-link" data-lang="ar" style="display: none;">تسجيل الدخول</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-selector">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pricing-bundles">
+        <h2 data-lang="en">Choose Your Learning Plan</h2>
+        <h2 data-lang="ar">اختر خطة التعلم الخاصة بك</h2>
+        
+        <div class="pricing-grid">
+            <!-- Monthly Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 data-lang="en">All Access Monthly</h3>
+                    <h3 data-lang="ar">اشتراك شهري - وصول كامل</h3>
+                </div>
+                <div class="pricing-price">
+                    <span class="original-price">$249</span>
+                    <div class="discounted-price">
+                        $149.40<span class="pricing-period">/month</span>
+                    </div>
+                    <span class="discount-badge" data-lang="en">40% off</span>
+                    <span class="discount-badge" data-lang="ar">خصم 40%</span>
+                </div>
+                <ul class="pricing-features">
+                    <li data-lang="en">Unlimited access to our top-rated courses</li>
+                    <li data-lang="ar">وصول غير محدود إلى دوراتنا الأعلى تقييماً</li>
+                    
+                    <li data-lang="en">Hands-on projects with expert feedback</li>
+                    <li data-lang="ar">مشاريع عملية مع تعليقات من الخبراء</li>
+                    
+                    <li data-lang="en">Personalized career coaching and interview prep</li>
+                    <li data-lang="ar">تدريب مهني مخصص وتحضير للمقابلات</li>
+                    
+                    <li data-lang="en">Program Certificates</li>
+                    <li data-lang="ar">شهادات البرنامج</li>
+                </ul>
+                <button class="pricing-button" data-lang="en">Get Started</button>
+                <button class="pricing-button" data-lang="ar">ابدأ الآن</button>
+            </div>
+    
+            <!-- 4-Month Bundle -->
+            <!-- 4-Month Bundle -->
+<div class="pricing-card best-value">
+    <div class="pricing-header">
+        <h3 data-lang="en">All Access Bundle</h3>
+        <h3 data-lang="ar">باقة الوصول الكامل</h3>
+    </div>
+    <div class="pricing-price">
+        <span class="original-price">$212</span>
+        <div class="discounted-price">
+            $127<span class="pricing-period">/month</span>
+        </div>
+        <span class="bundle-period" data-lang="en">for 4-month bundle</span>
+        <span class="bundle-period" data-lang="ar">لباقة 4 أشهر</span>
+        <span class="discount-badge" data-lang="en">40% off</span>
+        <span class="discount-badge" data-lang="ar">خصم 40%</span>
+    </div>
+    <ul class="pricing-features">
+        <li data-lang="en">All the same great benefits as our monthly plan</li>
+        <li data-lang="ar">نفس المزايا الرائعة مثل خطة الاشتراك الشهري</li>
+        
+        <li data-lang="en">The most cost-effective way to develop the skills you want</li>
+        <li data-lang="ar">الطريقة الأكثر فعالية من حيث التكلفة لتطوير المهارات التي تريدها</li>
+    </ul>
+    <button class="pricing-button all-access-bundle" data-lang="en">Get Started</button>
+    <button class="pricing-button" data-lang="ar">ابدأ الآن</button>
+    <div class="pricing-note">
+        <p data-lang="en">Total cost: $507.60 for 4 months</p>
+        <p data-lang="ar">التكلفة الإجمالية: $507.60 لمدة 4 أشهر</p>
+        <p data-lang="en">Discount applies to the first 4 months of membership, after which plans are converted to month-to-month.</p>
+        <p data-lang="ar">يتم تطبيق الخصم على الأشهر الأربعة الأولى من العضوية، وبعد ذلك يتم تحويل الخطط إلى اشتراك شهري.</p>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- our top Courses -->
+    <section class="recommended-courses">
+        <h2 data-en="Our Top Courses" data-ar="افضل الدروس لدينا">Our Top Courses</h2>
+        <div class="courses-grid swiper">
+            <div class="card-wrapped">
+                <div class="swiper-wrapper">
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Communication Skills" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="courses-card swiper-slide ">
+                        <img src="../ui2/images/Research paper-rafiki.svg" alt="Course Image">
+                        <div class="course-info">
+                            <h3 data-en="Data Science" data-ar="علوم البيانات">Data Science</h3>
+                            <p data-en="Learn data analysis and visualization" data-ar="تعلم تحليل وتصور البيانات">Learn data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 40 hours</span>
+                                <span><i class="fas fa-users"></i> 200+ students</span>
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                            <button class="enroll-btn" data-en="Enroll Now" data-ar="سجل الآن">Enroll Now</button>
+                        </div>
+                    </div>
+                    <!-- Add more recommended courses here -->
+
+                </div>
+                <!-- pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+            <div class="footer-content">
+                <div class="col1">
+                    <h3 data-lang="en">Connect With Us</h3>
+                    <h3 data-lang="ar" style="display: none;">تواصل معنا</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col2">
+                    <ul class="menu">
+                        <li><a href="#home" data-lang="en">Home</a></li>
+                        <li><a href="#features" data-lang="en">Features</a></li>
+                        <li><a href="#courses" data-lang="en">Courses</a></li>
+                        <li><a href="#contact" data-lang="en">Contact</a></li>
+                        <li><a href="#home" data-lang="ar" style="display: none;">الرئيسية</a></li>
+                        <li><a href="#features" data-lang="ar" style="display: none;">المميزات</a></li>
+                        <li><a href="#courses" data-lang="ar" style="display: none;">الدورات</a></li>
+                        <li><a href="#contact" data-lang="ar" style="display: none;">اتصل بنا</a></li>
+                    </ul>
+                    <p>
+                        Our goal is to create a modern, user-friendly learning environment where learners of all ages can grow, explore, and achieve anytime, anywhere.
+                    </p>
+                </div>
+                <div class="col3">
+                    <p>Register to know our news</p>
+                    <form>
+                        <div class="input-wrap">
+                            <input
+                            type="email"
+                            placeholder="Example@gmail.com"
+                            />
+                            <button type="submit">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <ul class="service-icons">
+                        <li>
+                            <a href="#">
+                            <i class="fa-brands fa-cc-amazon-pay"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <i class="fa-brands fa-cc-apple-pay"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang="en">&copy; 2024 Yalla Learn. All rights reserved.</p>
+                <p data-lang="ar" style="display: none;">&copy; 2024 يلا ليرن. جميع الحقوق محفوظة.</p>
+            </div>
+    </footer>
+
+    <!--Linking SwiperJS Script-->
+    <script
+    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+    <script src="../scripts/courses.js"></script>
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/script.js"></script>
+
+</body>
+</html>
