@@ -1,4 +1,4 @@
-﻿using KidHub.API.Services;
+﻿using KidHub.API.Services.JWTAuth;
 using KidHub.Data.Entities;
 using KidHub.Domain.Dtos.IdentityDtos;
 using Microsoft.AspNetCore.Http;

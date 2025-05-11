@@ -1,0 +1,63 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using KidHub.Infrastructure.Services.Paymob;
+
+namespace KidHub.API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PaymentController : ControllerBase
+    {
+        private readonly IPaymobService _paymobService;
+
+        public PaymentController(IPaymobService paymobService)
+        {
+            _paymobService = paymobService;
+        }
+
+        [HttpPost("create-payment")]
+        public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentRequest request)
+        {
+            try
+            {
+                var paymentLink = await _paymobService.CreatePaymentLink(
+                    request.Amount,
+                    request.Currency,
+                    request.OrderId
+                );
+
+                return Ok(new { paymentUrl = paymentLink });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+        [HttpPost("validate-payment")]
+        public async Task<IActionResult> ValidatePayment([FromBody] ValidatePaymentRequest request)
+        {
+            try
+            {
+                var isValid = await _paymobService.ValidatePayment(request.PaymentToken);
+                return Ok(new { isValid });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+    }
+
+    public class CreatePaymentRequest
+    {
+        public decimal Amount { get; set; }
+        public string Currency { get; set; } = "EGP";
+        public string OrderId { get; set; }
+    }
+
+    public class ValidatePaymentRequest
+    {
+        public string PaymentToken { get; set; }
+    }
+} 

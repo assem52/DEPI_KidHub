@@ -12,7 +12,8 @@ using KidHub.Data.Repositories.LessonRepository;
 using KidHub.Domain.Services.LessonService;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using KidHub.API.Services;
+using KidHub.API.Services.JWTAuth;
+using KidHub.Infrastructure.Services.Paymob;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,11 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<ILessonService, LessonService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<IPaymobService, PaymobService>();
+
+
+builder.Services.AddHttpClient(); // Registers IHttpClientFactory to use with PaymobService
+
 
 // Add ASP.NET Core Identity for user management
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -84,12 +90,13 @@ builder.Services.AddAuthentication("Bearer")
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
 
-            ValidIssuer = "YourApp", // Use your actual issuer here
-            ValidAudience = "YourAppUsers", // Use your actual audience here
+            ValidIssuer = builder.Configuration["Jwt:Issuer"], // Retrieve from appsettings.json
+            ValidAudience = builder.Configuration["Jwt:Audience"], // Retrieve from appsettings.json
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes("your_super_secret_key_here_!123")) // Store in appsettings or environment variables
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])) // Retrieve from appsettings.json
         };
     });
+
 
 var app = builder.Build();
 
