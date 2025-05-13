@@ -1,6 +1,8 @@
 
 
-```markdown
+
+
+
 # 📘 Yala Learn – Educational Platform (MVP)
 
 **Yala Learn** is a full-stack Arabic educational platform designed to deliver accessible, high-quality learning experiences. It supports **free** and **premium** courses, a secure **payment gateway**, and clean, scalable architecture following best practices in modern web development.
@@ -13,45 +15,58 @@
 - ✅ Role-based Access (User / Admin)
 - ✅ Browse Free and Premium Courses
 - ✅ Secure Payment Integration via **Paymob**
+- ✅ Course & Lesson Management
+- ✅ Cloud-based Media Upload via **Cloudinary**
 - ✅ Clean Architecture with Repository Pattern
 - ✅ API Documentation using Swagger
 - 🔜 Planned: Lesson Ratings, Reviews, Quizzes, and React UI
 
 ---
 
-## 🧱 Project Architecture
+## 🧱 Project Architecture – Clean Architecture
 
-The project follows the **Clean Architecture** pattern, organized into logical layers:
+The platform is structured using **Clean Architecture**, separating responsibilities across four main layers:
 
-```
 
-📦 YalaLearn
-┣ 📂 YalaLearn.API            → Presentation layer (Controllers, DTOs)
-┣ 📂 YalaLearn.Domain         → Core entities & business logic interfaces
-┣ 📂 YalaLearn.Data           → EF Core DbContext, Repositories
-┣ 📂 YalaLearn.Infrastructure → External services (e.g., Paymob)
 
-```
+📦 YalaLearn\
+┣ 📂 YalaLearn.API → Presentation Layer (Controllers, DTOs, Auth) \
+┣ 📂 YalaLearn.Domain → Core Entities, Interfaces (Course, Lesson, etc.)\
+┣ 📂 YalaLearn.Data → EF Core DbContext, Repository Implementations\
+┣ 📂 YalaLearn.Infrastructure → External Integrations (Paymob, Cloudinary, etc.)
 
-### Key Technologies:
-| Feature        | Tech Used                    |
-|----------------|------------------------------|
-| API            | ASP.NET Core Web API         |
-| ORM            | Entity Framework Core        |
-| Auth           | ASP.NET Core Identity + JWT  |
-| Payment        | Paymob Payment Gateway       |
-| Database       | SQL Server                   |
-| Object Mapping | AutoMapper                   |
-| API Docs       | Swagger (OpenAPI)            |
+
+This design ensures **Separation of Concerns**, **Single Responsibility**, and easy **scalability** or **testing**.
+
+---
+
+## 📦 Repository Pattern
+
+We applied the **Repository Pattern** to keep data access logic clean and reusable:
+
+- A **generic `IRepository<T>` interface** defines common operations (Get, Add, Update, Delete).
+- Each entity like `Course`, `Lesson`, etc., has its own repository implementing that interface.
+- Helps reduce code repetition and supports **unit testing** and **dependency injection**.
+
+---
+
+## ☁️ Cloudinary Integration
+
+Cloudinary is used to handle **image and video uploads**:
+
+- Admin can upload thumbnails, video previews, or lesson media.
+- Media is stored and retrieved securely via **Cloudinary API**.
+- Cloudinary settings are stored in `appsettings.json` and injected via `ICloudinaryService`.
 
 ---
 
 ## 🔐 Authentication & Authorization
 
-- Users register and log in using **JWT tokens**.
+- Users log in using **JWT tokens**.
+- **ASP.NET Core Identity** manages users and roles.
 - Role-based access:
-  - **User**: Access free courses, upgrade to premium.
-  - **Admin**: Manage courses, lessons, and users.
+  - **User**: Access free/premium content based on subscription.
+  - **Admin**: Full content & user management.
 
 ---
 
@@ -59,50 +74,47 @@ The project follows the **Clean Architecture** pattern, organized into logical l
 
 1. User clicks “Enroll” on a premium course.
 2. Backend calls `IPaymobService` to:
-   - Get an auth token
-   - Create a Paymob order
-   - Generate payment key
-   - Return the payment iframe URL to frontend
-3. User completes payment and gets access to the content.
+   - Authenticate with Paymob API
+   - Create an order
+   - Generate a payment key
+   - Return an **iframe URL** to complete the payment.
+3. User is redirected to Paymob’s hosted payment page.
 
 ---
 
 ## 🧪 API Testing with Swagger
 
-Swagger is enabled to test and explore the API:
+Swagger is enabled for easy API testing:
 
-```
 
-[https://yourdomain.com/swagger](https://yourdomain.com/swagger)
+✅ Tested endpoints:
 
-````
-
-Test endpoints like:
-
-- `/api/auth/login`
-- `/api/courses`
+- `/api/auth/register`, `/api/auth/login`
+- `/api/users`, `/api/roles`  
+- `/api/courses`, `/api/lessons`
 - `/api/payment/create-payment`
-- `/api/lessons`
-- Protected routes support **"Bearer {JWT}"** authentication.
+- Add **Bearer {JWT}** in the Authorize button to test secured routes.
 
 ---
 
 ## 🌐 UI Flow
 
-1. **Landing Page** → Introduction and Get Started button  
-2. **Login/Register Pages** → JWT-based authentication  
-3. **Courses Page** → Browse courses and select  
-4. **Payment Redirect** (for premium) → Paymob iframe
+1. **Landing Page** – Introduction + CTA buttons.
+2. **Login / Register** – User authentication via API.
+3. **Courses Page** – Displays all available courses (filtered by access).
+4. **Payment Flow** – For premium courses, redirects to Paymob checkout.
+5. **Lesson Page** – Displays lesson content (future: add ratings & quizzes).
 
 ---
 
 ## 🚀 Deployment
 
-- Hosted using **ASPMonster** – free hosting for .NET projects with SQL Server support.
-- Benefits:
-  - Free & easy to set up
-  - Supports auto deployment from GitHub
-  - Ideal for MVPs and student projects
+Deployed using **ASPMonster** for .NET apps:
+
+- ✅ Free hosting for .NET Core & SQL Server
+- ✅ Easy setup with GitHub integration
+- ✅ Simple database setup and config
+- ✅ Great for MVPs, student projects, and low-traffic production apps
 
 ---
 
@@ -110,17 +122,11 @@ Test endpoints like:
 
 - ✅ Admin Panel UI
 - ✅ Enhanced UI using React.js
-- ✅ Quizzes, Assignments & Certificates
 - ✅ Lesson Ratings & Reviews
-- ✅ Mobile App (React Native / Flutter)
+- ✅ Interactive Quizzes & Assignments
+- ✅ Certificate Generation
 - ✅ Instructor Dashboard
-
----
-
-## 🤝 Team
-
-- Project by passionate engineering students from **Zagazig University**
-- Guided by real-world problem-solving and modern development practices
+- ✅ Mobile App (React Native / Flutter)
 
 ---
 
@@ -129,38 +135,35 @@ Test endpoints like:
 1. Clone the repo:
    ```bash
    git clone https://github.com/your-username/yala-learn.git
-````
 
-2. Update your SQL Server connection string in `appsettings.json`.
-
-3. Apply migrations:
-
+2. Update the connection string and Cloudinary/Paymob keys in appsettings.json.
+3. Apply EF Core migrations:
    ```bash
    dotnet ef database update
-   ```
 
-4. Run the project:
-
+4. Run the app:
    ```bash
    dotnet run
-   ```
+5. Open in browser:
+   ```bash
+   https://localhost:5001/swagger
+## 🧰 Tech Stack Summary
 
-5. Navigate to `https://localhost:5001/swagger` to test the API.
+| Feature       | Tech Used                   |
+| ------------- | --------------------------- |
+| Backend API   | ASP.NET Core Web API        |
+| ORM           | Entity Framework Core       |
+| Auth          | ASP.NET Core Identity + JWT |
+| Media Hosting | Cloudinary                  |
+| Payments      | Paymob Integration          |
+| Documentation | Swagger (OpenAPI)           |
+| Database      | SQL Server                  |
+| Hosting       | ASPMonster                  |
+
+
+📬 Contact
+For inquiries
+assem654321@gamil.com
+
 
 ---
-
-## 📬 Contact
-
-Want to collaborate or learn more?
-Reach us on [LinkedIn](#), [Facebook](#), or shoot an email: **[team@yala-learn.com](mailto:team@yala-learn.com)**
-
----
-
-> 💡 *This is just the beginning – we aim to make Yala Learn the leading Arabic learning platform for all learners.*
-
-```
-
----
-
-Let me know if you'd like me to generate a sample GitHub repo `structure` or `.gitignore`, or if you want to include images/screenshots or demo links.
-```
